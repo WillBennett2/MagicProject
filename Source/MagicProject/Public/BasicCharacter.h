@@ -15,7 +15,11 @@ UCLASS(Config=Game)
 class MAGICPROJECT_API ABasicCharacter : public ACharacter, public IInputable
 {
 	GENERATED_BODY()
-
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UChildActorComponent* m_ChildActor_ProjectileGun;
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UChildActorComponent* m_ChildActor_HitscanGun;
+	
 	UPROPERTY(EditAnywhere,BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UChildActorComponent* m_ChildActor_Gun;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -31,6 +35,9 @@ public:
 	virtual void JumpReleased_Implementation()override;
 	virtual void FirePressed_Implementation()override;
 	virtual void FireReleased_Implementation()override;
+
+	virtual void OnePressed_Implementation() override;
+	virtual void TwoPressed_Implementation() override;
 	
 	virtual void MoveForward_Implementation(float Value)override;
 	virtual void MoveRight_Implementation(float Value)override;

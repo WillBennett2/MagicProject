@@ -27,6 +27,11 @@ ABasicCharacter::ABasicCharacter()
 	
 	m_ChildActor_Gun = CreateDefaultSubobject<UChildActorComponent>(TEXT("GunSlot"));
 	m_ChildActor_Gun->SetupAttachment(FirstPersonCameraComponent);
+	
+	m_ChildActor_ProjectileGun = CreateDefaultSubobject<UChildActorComponent>(TEXT("ProjectileGunSlot"));
+	m_ChildActor_ProjectileGun->SetupAttachment(FirstPersonCameraComponent);
+	m_ChildActor_HitscanGun = CreateDefaultSubobject<UChildActorComponent>(TEXT("HitScanGunSlot"));
+	m_ChildActor_HitscanGun->SetupAttachment(FirstPersonCameraComponent);
 
 }
 
@@ -58,6 +63,18 @@ void ABasicCharacter::FireReleased_Implementation()
 {
 	//IInputable::FireReleased_Implementation();
 	
+}
+
+void ABasicCharacter::OnePressed_Implementation()
+{
+	m_ChildActor_Gun = m_ChildActor_ProjectileGun;
+	IInputable::OnePressed_Implementation();
+}
+
+void ABasicCharacter::TwoPressed_Implementation()
+{
+	//m_ChildActor_Gun->GetChildComponent(UChildActorComponent::ChildActorClass) = m_ChildActor_ProjectileGun;
+	IInputable::TwoPressed_Implementation();
 }
 
 void ABasicCharacter::MoveForward_Implementation(float Value)

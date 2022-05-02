@@ -101,6 +101,24 @@ void AInGamePlayerController::FireReleased()
 	}
 }
 
+void AInGamePlayerController::OnePressed()
+{
+	APawn* pawn = GetPawn();
+	if(UKismetSystemLibrary::DoesImplementInterface(pawn, UInputable::StaticClass()))
+	{
+		IInputable::Execute_OnePressed(pawn);
+	}
+}
+
+void AInGamePlayerController::TwoPressed()
+{
+	APawn* pawn = GetPawn();
+	if(UKismetSystemLibrary::DoesImplementInterface(pawn, UInputable::StaticClass()))
+	{
+		IInputable::Execute_TwoPressed(pawn);
+	}
+}
+
 void AInGamePlayerController::MoveForward(float Value)
 {
 	APawn* pawn = GetPawn();

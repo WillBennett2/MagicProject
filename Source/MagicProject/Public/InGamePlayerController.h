@@ -33,6 +33,9 @@ private:
 	void JumpPressed(); void JumpReleased();
 	void FirePressed(); void FireReleased();
 
+	void OnePressed();
+	void TwoPressed();
+	
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void Turn(float Value);

@@ -4,6 +4,7 @@
 #include "Weapon_Hitscan.h"
 #include "Components/ArrowComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystem.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogWeaponHitscan, Display, All);
 bool AWeapon_Hitscan::Fire_Implementation()
