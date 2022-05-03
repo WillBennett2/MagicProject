@@ -29,6 +29,7 @@ bool AWeapon_Hitscan::Fire_Implementation()
 	{
 		UE_LOG(LogWeaponHitscan,Display,TEXT("Hit position: %s"), *hit.ImpactPoint.ToString());
 		UGameplayStatics::ApplyDamage(hit.GetActor(),10.0f,GetParentActor()->GetInstigatorController(),GetParentActor(),UDamageType::StaticClass());
+		
 	}
 	
 	return true;
