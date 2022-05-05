@@ -32,9 +32,8 @@ public:
 	void FireReleased();
 
 	UFUNCTION(BlueprintNativeEvent)
-	void OnePressed();
-	UFUNCTION(BlueprintNativeEvent)
-	void TwoPressed();
+	void SwitchPressed();
+
 	
 	UFUNCTION(BlueprintNativeEvent)
 	void MoveForward(float Value);

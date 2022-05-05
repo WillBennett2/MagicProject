@@ -32,14 +32,23 @@ ABasicCharacter::ABasicCharacter()
 	m_ChildActor_ProjectileGun = CreateDefaultSubobject<UChildActorComponent>(TEXT("ProjectileGunSlot"));
 	//m_ChildActor_ProjectileGun->SetupAttachment(FirstPersonCameraComponent);
 	m_ChildActor_HitscanGun = CreateDefaultSubobject<UChildActorComponent>(TEXT("HitScanGunSlot"));
-	//m_ChildActor_HitscanGun->SetupAttachment(FirstPersonCameraComponent);
+	m_ChildActor_HitscanGun->SetupAttachment(FirstPersonCameraComponent);
 	
 }
 
 void ABasicCharacter::JumpPressed_Implementation()
 {
 	IInputable::JumpPressed_Implementation();
-	Jump();
+	if(m_ChildActor_Gun == m_ChildActor_HitscanGun )
+	{
+		m_ChildActor_Gun = m_ChildActor_ProjectileGun;
+	}
+	else
+	{
+		m_ChildActor_Gun  = m_ChildActor_HitscanGun;
+	}
+	
+	//Jump();
 }
 
 void ABasicCharacter::JumpReleased_Implementation()
@@ -66,16 +75,11 @@ void ABasicCharacter::FireReleased_Implementation()
 	
 }
 
-void ABasicCharacter::OnePressed_Implementation()
+void ABasicCharacter::SwitchPressed_Implementation()
 {
-	//m_ChildActor_Gun  = m_ChildActor_HitscanGun->GetChildActor();
-	IInputable::OnePressed_Implementation();
-}
-
-void ABasicCharacter::TwoPressed_Implementation()
-{
-	//m_ChildActor_Gun->GetChildComponent(UChildActorComponent::ChildActorClass) = m_ChildActor_ProjectileGun;
-	IInputable::TwoPressed_Implementation();
+	IInputable::SwitchPressed_Implementation();
+	
+	SwitchPressed();
 }
 
 void ABasicCharacter::MoveForward_Implementation(float Value)

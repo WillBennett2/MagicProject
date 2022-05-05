@@ -13,5 +13,4 @@ UCLASS()
 class MAGICPROJECT_API UBaseWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
 };

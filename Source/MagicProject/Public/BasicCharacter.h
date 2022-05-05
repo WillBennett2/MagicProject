@@ -36,8 +36,7 @@ public:
 	virtual void FirePressed_Implementation()override;
 	virtual void FireReleased_Implementation()override;
 
-	virtual void OnePressed_Implementation() override;
-	virtual void TwoPressed_Implementation() override;
+	virtual void SwitchPressed_Implementation() override;
 	
 	virtual void MoveForward_Implementation(float Value)override;
 	virtual void MoveRight_Implementation(float Value)override;

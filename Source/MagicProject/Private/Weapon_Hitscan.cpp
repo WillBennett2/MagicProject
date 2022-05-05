@@ -33,5 +33,15 @@ bool AWeapon_Hitscan::Fire_Implementation()
 	}
 	
 	return true;
+	
+}
 
+void AWeapon_Hitscan::HideGun()
+{
+	SetActorHiddenInGame(true);
+}
+
+void AWeapon_Hitscan::ViewGun()
+{
+	SetActorHiddenInGame(false);
 }
